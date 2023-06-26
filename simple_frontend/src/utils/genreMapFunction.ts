@@ -1,5 +1,6 @@
 import { Genres } from '@/types/api';
 
+
 export const mapGenre = {
   фэнтези: 'fantasy',
   ужасы: 'horror',

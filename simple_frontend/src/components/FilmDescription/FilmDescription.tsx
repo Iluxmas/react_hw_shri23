@@ -1,7 +1,8 @@
 'use client';
 import React, { ReactElement } from 'react';
 import { useGetMovieQuery } from '@/redux/services/biletApi';
-import { IMovie } from '@/types/api';
+import Image from 'next/image';
+
 import Row from './Row/Row';
 import CardContainer from '../CardContainer/CardContainer';
 import Spinner from '../Spinner/Spinner';
@@ -19,7 +20,15 @@ const FilmDescription: React.FC<{ movieId: string }> = ({ movieId }): ReactEleme
   ) : (
     <CardContainer style={styles.description__outerContainer}>
       <div className={styles.description__posterContainer}>
-        <img className={styles.description__poster} src={movie?.posterUrl} alt='' />
+        <Image
+          loader={() => movie.posterUrl}
+          width={400}
+          height={500}
+          className={styles.description__poster}
+          src={movie.posterUrl}
+          alt=''
+        />
+        {/* <img className={styles.description__poster} src={movie?.posterUrl} alt='' /> */}
       </div>
       <div>
         <div className={styles.description__header}>

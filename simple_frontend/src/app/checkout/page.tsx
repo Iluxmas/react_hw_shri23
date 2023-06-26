@@ -12,7 +12,7 @@ import Modal from '@/components/Modal/Modal';
 import styles from './checkout.module.css';
 import { useGetMoviesQuery } from '@/redux/services/biletApi';
 
-function page() {
+function Page() {
   const [cartMovies, setCartMovies] = useState<IMovie[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<string>('');
@@ -74,4 +74,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

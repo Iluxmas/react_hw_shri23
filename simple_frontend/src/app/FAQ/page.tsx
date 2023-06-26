@@ -27,7 +27,7 @@ const data = [
   },
 ];
 
-function page(props) {
+function Page(props) {
   return (
     <div>
       <CardContainer>
@@ -43,4 +43,4 @@ function page(props) {
   );
 }
 
-export default page;
+export default Page;

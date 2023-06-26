@@ -3,7 +3,7 @@ import Reviews from '@/components/Review/Reviews';
 import React, { ReactElement } from 'react';
 import styles from './moviePage.module.css';
 
-const page: React.FC<{ params: { movieId: string } }> = ({ params }): ReactElement => {
+const Page: React.FC<{ params: { movieId: string } }> = ({ params }): ReactElement => {
   return (
     <div className={styles.container}>
       <FilmDescription movieId={params.movieId}></FilmDescription>
@@ -12,4 +12,4 @@ const page: React.FC<{ params: { movieId: string } }> = ({ params }): ReactEleme
   );
 };
 
-export default page;
+export default Page;

@@ -3,7 +3,7 @@ import CardContainer from '@/components/CardContainer/CardContainer';
 
 import styles from './aboutus.module.css';
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <CardContainer style={styles.aboutus__content}>
       <h1 className={styles.aboutus__title}>О нас</h1>
@@ -27,4 +27,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;
