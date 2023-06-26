@@ -11,6 +11,7 @@ import Select from './Select/Select';
 import Input from './Input/Input';
 
 import styles from './main.module.css';
+import MoviesList from '../MoviesList/MoviesList';
 
 function Main() {
   const [nameFilter, setNameFilter] = useState<string>('');
@@ -124,17 +125,8 @@ function Main() {
           </div>
         </div>
       </aside>
-      <div className={styles.films__content}>
-        <ul className={styles.films__list}>
-          {isFetching ? (
-            <Spinner />
-          ) : filteredMovies && filteredMovies.length > 0 ? (
-            filteredMovies.map((movie: IMovie) => <FilmItem key={movie.id} movieData={movie}></FilmItem>)
-          ) : (
-            <h1>Фильмов не найдено, попробуйте смягчить условия поиска</h1>
-          )}
-        </ul>
-      </div>
+
+      {isFetching ? <Spinner /> : <MoviesList filteredMovies={filteredMovies} />}
     </section>
   );
 }
