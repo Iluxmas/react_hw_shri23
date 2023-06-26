@@ -46,6 +46,7 @@ function Main() {
 
   if (cinemaFilter && !isCinemaLoading) {
     const cinemaIds = cinemaData.map((movie: IMovie) => movie.id);
+
     filteredMovies = filteredMovies?.filter((movie) => cinemaIds?.includes(movie.id));
   }
 

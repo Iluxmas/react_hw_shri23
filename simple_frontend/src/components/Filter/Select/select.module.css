@@ -1,0 +1,39 @@
+.form__label {
+  font-size: 14px;
+  line-height: 20px;
+  color: #1B1F23;
+  margin-bottom: 4px;
+}
+.form__select {
+  padding: 10px 16px;
+  border: 1px solid #E1E3E6;
+  border-radius: 8px;
+  color: #999FA6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__selectPlaceholder {
+  color: var(--text-tertiary, #999FA6);
+  font-size: 14px;
+  line-height: 20px;
+}
+.form__select:focus {
+  color: #1B1F23;
+}
+.form__option {
+
+}
+.select__expand {
+  width: 20px;
+  height: 20px;
+  background-image: url('../../../assets/icons/arrow.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.15s ease;
+  opacity: .5;
+}
+.select__expand_expanded {
+  transform: rotate(90deg);
+}
