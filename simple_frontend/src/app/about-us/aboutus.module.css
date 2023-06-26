@@ -1,0 +1,20 @@
+
+.aboutus__content {
+  height: min-content;
+}
+
+.aboutus__title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+
+.aboutus_text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.aboutus_text:not(:last-of-type) {
+  margin-bottom: 16px;
+}

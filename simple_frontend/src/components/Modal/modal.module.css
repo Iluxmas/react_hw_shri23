@@ -1,0 +1,95 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  margin: 0 auto;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__wrapper {
+  width: 344px !important;
+  height: 168px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  vertical-align: middle;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal__container {
+}
+.body:has(.modal) {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.modal__button {
+  padding: 10px 16px;
+  border: 1px solid #f50;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  border-radius: 8px;
+}
+
+.modal__button_yes {
+  background-color: #f50;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+.modal__button_yes:hover {
+opacity: 0.5;
+}
+.modal__button_no {
+  background-color: #fff;
+  color: #f50;
+  transition: all 0.2s ease;
+}
+.modal__button_no:hover {
+  background-color: #f50;
+  color: #fff;
+}
+
+.modal__button_close {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  top: 26px;
+  right: 24px;
+  background-color: transparent;
+  background-image: url('../../assets/icons/close.svg');
+  background-position: center;
+  background-size: 13px;
+  background-repeat: no-repeat;
+  margin-left: 24px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.modal__button_close:hover {
+  opacity: .7;
+}
+.modal__header {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 16px;
+}
+.modal__question {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+.modal__buttons {
+  display: flex;
+  gap: 8px;
+}
+

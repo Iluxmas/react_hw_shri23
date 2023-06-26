@@ -1,0 +1,50 @@
+.film__tickets{
+  display: flex;
+  gap: 8px;
+}
+.film__tickets button {
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  border: none;
+
+}
+.film__tickets button:not([disabled]):hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.film__icon_minus {
+  background-image: url('../../../assets/icons/minus.svg');
+  background-color: #FFA375;
+  background-position: center;
+  background-size: 12px;
+  background-repeat: no-repeat;
+  
+}
+
+.film__ticketsAmount {
+  color:  #1B1F23;
+  font-size: 20px;
+  font-family: var(--font-roboto);
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.film__icon_plus {
+  background-image: url('../../../assets/icons/plus.svg');
+  background-color: #F50;
+  background-position: center;
+  background-size: 12px;
+  background-repeat: no-repeat;
+}
+
+.film__delete {
+  background-color: transparent;
+  background-image: url('../../../assets/icons/close.svg');
+  background-position: center;
+  background-size: 14px;
+  background-repeat: no-repeat;
+  margin-left: 16px;
+}

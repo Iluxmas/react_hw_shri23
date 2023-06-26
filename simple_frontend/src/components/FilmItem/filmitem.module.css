@@ -1,0 +1,34 @@
+.film {
+  
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.film__poster {
+  min-width: 100px;
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.film__details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+.film__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.film__title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 8px;
+}

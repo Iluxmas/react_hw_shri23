@@ -1,0 +1,52 @@
+
+.main__container {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  gap: 23px;
+}
+.sidebar {
+  width: 22%;
+  min-width: 300px;
+}
+.sidebar__content {
+  position: fixed;
+  padding: 24px;
+  flex: 1;
+  border-radius: 8px;
+  min-width: 300px;
+  align-self: stretch;
+  background-color: #fff;
+  min-height: calc(100vh - 221px);
+  max-height: calc(100vh - 132px);
+  /* height: auto; */
+}
+
+.sidebar__title {
+  color: var(--text-primary, #1B1F23);
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 20px;
+}
+
+.films__content {
+  width: 100%;
+  /* border-radius: 8px;
+  background-color: #fff; */
+  margin-left: auto;
+}
+
+.filter {
+  margin-bottom: auto;
+}
+
+.films__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-height: calc(100vh - 173px - 48px);
+}
+
+.films__list {
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.totals {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  border-radius: 8px;
+  background-color: #FFF;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 24px;
+}

@@ -1,0 +1,58 @@
+.accordion__item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.accordion__header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.accordion__header:hover {
+  opacity: .7;
+}
+.accordion__question {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.accordion__expand {
+  width: 32px;
+  height: 32px;
+  background-image: url('../../assets/icons/arrow.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.15s ease;
+}
+
+.accordion__expand:hover {
+  opacity: 0.7;
+}
+.accordion__expand:focus-visible {
+  outline: none;
+  border: 1px solid #555;
+  border-radius: 4px;
+}
+
+.accordion__expand_open {
+  transform: rotate(180deg);
+}
+
+.accordion__answer {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  max-height: 0;
+  transition: max-height 0.15s ease;
+  overflow: hidden;
+  display: none;
+}
+
+.accordion__answer_open {
+  display: block;
+  max-height: 200px;
+}

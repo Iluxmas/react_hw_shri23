@@ -1,0 +1,12 @@
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.faq__list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

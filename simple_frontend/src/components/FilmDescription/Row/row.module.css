@@ -1,0 +1,12 @@
+.row {
+  margin-bottom: 16px;
+}
+
+.row__paragraph{
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.row__accent {
+  font-weight: 600;
+}

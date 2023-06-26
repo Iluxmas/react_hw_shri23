@@ -1,0 +1,6 @@
+.page {
+  width: 100%;
+  padding: 24px 32px;
+  min-height: calc(100vh - 173px);
+
+}

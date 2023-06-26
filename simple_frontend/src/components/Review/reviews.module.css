@@ -1,0 +1,51 @@
+.review {
+  display: flex;
+  width: 100%;
+  gap: 32px;
+  background: #fff
+}
+.review__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review__avatar {
+width: 100px;
+height: 100px;
+min-width: 100px;
+border-radius: 8px;
+background: var(--gray-5, #E0E0E0);
+background-image: url('../../assets/icons/no-image.svg');
+background-repeat: no-repeat;
+background-size: 32px;
+background-position: center;
+
+}
+.review__content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+.review__header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.review__accent {
+
+}
+.review__rating {
+  font-size: 20px;
+  line-height: 32px;
+}
+.review__author {
+  font-size: 20px;
+font-weight: 600;
+line-height: 32px;
+}
+.review__text {
+  font-size: 16px;
+line-height: 24px;
+}
