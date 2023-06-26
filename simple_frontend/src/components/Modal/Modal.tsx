@@ -1,10 +1,9 @@
 'use client';
-
+import React from 'react';
 import { MouseEventHandler, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import styles from './modal.module.css';
-import React from 'react';
 import CardContainer from '../CardContainer/CardContainer';
+import styles from './modal.module.css';
 
 interface ButtonProps {
   style: string;
@@ -26,8 +25,22 @@ const Button = ({ style, text, onClickAction }: ButtonProps) => {
 };
 
 const Popup = ({ onConfirm, onClose }: ModalProps) => {
+  const modalRef = React.createRef<HTMLDivElement>();
+
+  useEffect(() => {
+    function handlerOutsideClick(event: MouseEvent) {
+      if (event.target === modalRef.current) {
+        onClose();
+      }
+    }
+
+    document.addEventListener('click', handlerOutsideClick);
+
+    return () => document.removeEventListener('click', handlerOutsideClick);
+  }, []);
+
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} ref={modalRef}>
       <CardContainer style={styles.modal__wrapper}>
         <h3 className={styles.modal__header}>Удаление билета</h3>
         <p className={styles.modal__question}>Вы уверены, что хотите удалить билет?</p>

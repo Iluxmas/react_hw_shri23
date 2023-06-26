@@ -46,10 +46,6 @@
   margin: 0;
   font-size: 16px;
   line-height: 24px;
-  max-height: 0;
-  transition: max-height 0.15s ease;
-  overflow: hidden;
-  display: none;
 }
 
 .accordion__answer_open {

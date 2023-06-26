@@ -1,28 +1,40 @@
 'use client';
 
-import React, { ReactElement, useState } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 import CardContainer from '@/components/CardContainer/CardContainer';
 import styles from './accordion.module.css';
 
-interface AccordionProps {
-  question: string;
-  answer: string;
-}
+const AccordionContext = createContext();
 
-const Accordion: React.FC<AccordionProps> = ({ question, answer }): ReactElement => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+export const MenuAccordion = ({ children }) => {
+  const [activeGroup, setActiveGroup] = useState();
+  const switchGroup = useCallback((title) => {
+    setActiveGroup((activeGroup) => (activeGroup === title ? undefined : title));
+  }, []);
+
+  return <AccordionContext.Provider value={{ activeGroup, switchGroup }}>{children}</AccordionContext.Provider>;
+};
+
+MenuAccordion.Container = function MenuContainer({ children, question }) {
+  const { activeGroup, switchGroup } = useContext(AccordionContext);
+
+  const isOpen = activeGroup === question;
 
   return (
     <CardContainer>
       <div className={styles.accordion__item}>
-        <div className={styles.accordion__header} onClick={() => setIsOpen((prev) => !prev)}>
+        <div className={styles.accordion__header} onClick={() => switchGroup(question)}>
           <span className={styles.accordion__question}>{question}</span>
           <button className={`${styles.accordion__expand} ${isOpen ? styles.accordion__expand_open : ''}`}></button>
         </div>
-        <p className={`${styles.accordion__answer} ${isOpen ? styles.accordion__answer_open : ''}`}>{answer}</p>
+        {isOpen && children}
       </div>
     </CardContainer>
   );
 };
 
-export default Accordion;
+MenuAccordion.Answer = function MenuAnswer({ answer }) {
+  return <p className={styles.accordion__answer}>{answer}</p>;
+};
+
+export default MenuAccordion;

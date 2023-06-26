@@ -4,7 +4,6 @@ import { useGetCinemaMoviesQuery, useGetCinemasQuery, useGetMoviesQuery } from '
 import { Genres, ICinema, IMovie } from '@/types/api';
 import { genreMapFunction, mapGenre } from '@/utils/genreMapFunction';
 import FormElementContainer from './FormElementContainer/FormElementContainer';
-import FilmItem from '../FilmItem/FilmItem';
 import Dropdown from '../Dropdown/Dropdown';
 import Spinner from '../Spinner/Spinner';
 import Select from './Select/Select';

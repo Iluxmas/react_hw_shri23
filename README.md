@@ -24,10 +24,10 @@
   - View film description
   - Sorting movies with name / genre / cinema
 
-  ## Further steps
+  ## Things to improve
 
   - [ ] Complete separate model and view
-  - [ ] Add localstorage usage for data keeping
+  - [ ] Add localstorage usage for data saving between sessions
   - [ ] Add searchQueries support for stable links
   - [ ] Move filter mechanics to store
   - [ ] Add error handling

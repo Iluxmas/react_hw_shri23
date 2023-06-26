@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import Accordion from '@/components/Accordion/Accordion';
+import Accordion, { MenuAccordion } from '@/components/Accordion/Accordion';
 import CardContainer from '@/components/CardContainer/CardContainer';
 
 import styles from './faq.module.css';
@@ -27,17 +29,20 @@ const data = [
   },
 ];
 
-function Page(props) {
+function Page() {
   return (
     <div>
       <CardContainer>
         <h1 className={styles.title}>Вопросы-ответы</h1>
       </CardContainer>
-
       <ul className={styles.faq__list}>
-        {data.map(({ question, answer }, idx) => (
-          <Accordion key={idx} question={question} answer={answer}></Accordion>
-        ))}
+        <MenuAccordion>
+          {data.map(({ question, answer }, idx) => (
+            <MenuAccordion.Container key={idx} question={question}>
+              <MenuAccordion.Answer answer={answer} />
+            </MenuAccordion.Container>
+          ))}
+        </MenuAccordion>
       </ul>
     </div>
   );
