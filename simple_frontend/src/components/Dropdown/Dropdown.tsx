@@ -13,13 +13,17 @@ interface DropdownProps {
   onClose: () => void;
 }
 
-const ModalContent: React.FC<DropdownProps> = ({ options, onChoose, onClose }) => {
+const ModalContent = ({ options, onChoose, onClose }: DropdownProps) => {
   const [offset, setOffset] = useState({ top: 0, left: 0, width: 0 });
   const rect = usePositionContext();
 
   useLayoutEffect(() => {
     if (rect) {
-      setOffset({ top: rect.bottom + window.pageYOffset, left: rect.x - 1, width: rect.width + 2 });
+      setOffset({
+        top: rect.bottom + window.pageYOffset,
+        left: rect.x - 1,
+        width: rect.width + 2,
+      });
     }
   }, []);
 
@@ -47,12 +51,18 @@ const ModalContent: React.FC<DropdownProps> = ({ options, onChoose, onClose }) =
   }, []);
 
   return (
-    <div ref={dropdownRed} className={styles.dropdown__container} style={offset}>
+    <div
+      ref={dropdownRed}
+      className={styles.dropdown__container}
+      style={offset}>
       <div className={styles.dropdown__option} onClick={() => onChoose('')}>
         Не выбран
       </div>
-      {options?.map((option) => (
-        <div key={option?.id || option} className={styles.dropdown__option} onClick={() => onChoose(option)}>
+      {options?.map(option => (
+        <div
+          key={option?.id || option}
+          className={styles.dropdown__option}
+          onClick={() => onChoose(option)}>
           {option?.name || option}
         </div>
       ))}
@@ -61,7 +71,10 @@ const ModalContent: React.FC<DropdownProps> = ({ options, onChoose, onClose }) =
 };
 
 const Dropdown: React.FC<DropdownProps> = ({ options, onChoose, onClose }) => {
-  return createPortal(<ModalContent options={options} onClose={onClose} onChoose={onChoose} />, document.body);
+  return createPortal(
+    <ModalContent options={options} onClose={onClose} onChoose={onChoose} />,
+    document.body,
+  );
 };
 
 export default Dropdown;

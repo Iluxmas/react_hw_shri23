@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './footer.module.css';
 import Link from 'next/link';
 
-function Footer(props) {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__container}>

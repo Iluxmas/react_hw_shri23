@@ -12,7 +12,7 @@ const Reviews: React.FC<{ movieId: string }> = ({ movieId }): ReactElement | fal
   return (
     !isLoading && (
       <>
-        {reviews.map(({ name, id, rating, text }: IReview, idx) => (
+        {reviews.map(({ name, id, rating, text }: IReview, idx: number) => (
           <CardContainer key={`review_${id}_${idx}`} style={styles.review}>
             <div className={styles.review__avatar}></div>
             <div className={styles.review__content}>

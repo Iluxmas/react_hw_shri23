@@ -6,7 +6,7 @@ import { IMovie } from '@/types/api';
 
 import styles from './moviesList.module.css';
 
-function MoviesList({ filteredMovies }: { filteredMovies: IMovie[] }) {
+const MoviesList = ({ filteredMovies }: { filteredMovies: IMovie[] }) => {
   return (
     <div className={styles.films__content}>
       <ul className={styles.films__list}>

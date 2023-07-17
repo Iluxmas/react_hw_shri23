@@ -2,15 +2,15 @@
 import React, { ReactElement } from 'react';
 import { useGetMovieQuery } from '@/redux/services/biletApi';
 import Image from 'next/image';
-
 import Row from './Row/Row';
 import CardContainer from '../CardContainer/CardContainer';
 import Spinner from '../Spinner/Spinner';
-
-import styles from './filmdescription.module.css';
 import { genreMapFunction } from '@/utils/genreMapFunction';
+import styles from './filmdescription.module.css';
 
-const FilmDescription: React.FC<{ movieId: string }> = ({ movieId }): ReactElement => {
+const FilmDescription: React.FC<{ movieId: string }> = ({
+  movieId,
+}): ReactElement => {
   const { data: movie, isLoading } = useGetMovieQuery(movieId);
 
   return isLoading ? (
@@ -26,9 +26,8 @@ const FilmDescription: React.FC<{ movieId: string }> = ({ movieId }): ReactEleme
           height={500}
           className={styles.description__poster}
           src={movie.posterUrl}
-          alt=''
+          alt=""
         />
-        {/* <img className={styles.description__poster} src={movie?.posterUrl} alt='' /> */}
       </div>
       <div>
         <div className={styles.description__header}>

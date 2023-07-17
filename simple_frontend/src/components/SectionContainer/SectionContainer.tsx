@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styles from './sectionContainer.module.css';
 
-function SectionContainer({ children }) {
+const SectionContainer = ({ children }: PropsWithChildren) => {
   return <div className={styles.page}>{children}</div>;
 }
 

@@ -1,10 +1,11 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartModule } from '@/redux/features/cart/selector';
 import { cartActions } from '@/redux/features/cart';
 import { CartState } from '@/types/store';
 import { IMovie } from '@/types/api';
+import { State } from '@/types/store';
 import FilmItem from '@/components/FilmItem/FilmItem';
 import Spinner from '@/components/Spinner/Spinner';
 import Modal from '@/components/Modal/Modal';
@@ -17,7 +18,7 @@ function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<string>('');
 
-  const cartState: CartState = useSelector((state) => selectCartModule(state));
+  const cartState: CartState = useSelector((state: State) => selectCartModule(state));
   const totalTickets: number = Object.values(cartState).reduce((a, c) => a + c, 0);
   const dispatch = useDispatch();
 
@@ -33,14 +34,14 @@ function Page() {
     }
   }, [moviesData, cartLength, isMoviesLoading]);
 
+  const handleDeleteMovie = useCallback((id: string): void => {
+    setSelectedId(id);
+    setIsModalOpen(true);
+  }, []);
+
   if (isMoviesLoading) {
     return <Spinner />;
   }
-
-  const handleDeleteMovie = (id: string): void => {
-    setSelectedId(id);
-    setIsModalOpen(true);
-  };
 
   const handleConfirmDelete = (id: string): void => {
     dispatch(cartActions.reset(id));

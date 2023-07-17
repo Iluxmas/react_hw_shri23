@@ -23,7 +23,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StoreProvider>
           <Header />
           <SectionContainer>{children}</SectionContainer>
-
           <Footer />
         </StoreProvider>
       </body>

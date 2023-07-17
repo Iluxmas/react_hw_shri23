@@ -6,11 +6,11 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { selectCartModule } from '@/redux/features/cart/selector';
 import { CartState } from '@/types/store';
-
+import { State } from '@/types/store';
 import styles from './header.module.css';
 
-function Header() {
-  const cartState: CartState = useSelector((state) => selectCartModule(state));
+const Header = () => {
+  const cartState: CartState = useSelector((state: State) => selectCartModule(state));
   const totalTickets: number = Object.values(cartState).reduce((a, c) => a + c, 0);
   const path = usePathname();
 
