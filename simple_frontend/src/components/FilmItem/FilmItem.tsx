@@ -17,13 +17,19 @@ interface FilmItemProps {
 const FilmItem: FC<FilmItemProps> = ({ movieData, onDelete }) => {
   return (
     <CardContainer style={styles.film}>
-      <img className={styles.film__poster} src={movieData.posterUrl} alt={`image for ${movieData.title} film`} />
+      <img
+        className={styles.film__poster}
+        src={movieData.posterUrl}
+        alt={`image for ${movieData.title} film`}
+      />
       <div className={styles.film__details}>
         <div className={styles.film__info}>
           <Link className={styles.film__title} href={`/movies/${movieData.id}`}>
             {movieData.title}
           </Link>
-          <p className={styles.film__genre}>{genreMapFunction(movieData.genre)}</p>
+          <p className={styles.film__genre}>
+            {genreMapFunction(movieData.genre)}
+          </p>
         </div>
         <TicketCounter id={movieData.id} onDelete={onDelete} />
       </div>

@@ -23,4 +23,12 @@ export interface IReview {
   rating: number;
 }
 
-export type Genres = 'horror' | 'fantasy' | 'comedy' | 'action' | 'ужасы' | 'фэнтези' | 'экшен' | 'комедия'
+export type Genres =
+  | 'horror'
+  | 'fantasy'
+  | 'comedy'
+  | 'action'
+  | 'ужасы'
+  | 'фэнтези'
+  | 'экшен'
+  | 'комедия';

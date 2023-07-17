@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Accordion, { MenuAccordion } from '@/components/Accordion/Accordion';
+import { MenuAccordion } from '@/components/Accordion/Accordion';
 import CardContainer from '@/components/CardContainer/CardContainer';
 
 import styles from './faq.module.css';

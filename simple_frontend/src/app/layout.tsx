@@ -16,9 +16,13 @@ export const metadata = {
   description: 'Best cinema tickets',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={`${roboto.className} body`}>
         <StoreProvider>
           <Header />

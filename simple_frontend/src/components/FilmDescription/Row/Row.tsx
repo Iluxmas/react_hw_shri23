@@ -6,7 +6,7 @@ interface IRow {
   text: string | number;
 }
 
-function Row({ title, text }: IRow) {
+const Row = ({ title, text }: IRow) => {
   return (
     <div className={styles.row}>
       <p className={styles.row__paragraph}>

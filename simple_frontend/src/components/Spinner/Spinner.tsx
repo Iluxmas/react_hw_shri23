@@ -7,6 +7,6 @@ const Spinner = () => {
       <div className={styles.spinner}></div>
     </div>
   );
-}
+};
 
 export default Spinner;

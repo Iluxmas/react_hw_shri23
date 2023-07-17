@@ -8,7 +8,8 @@ export const store = configureStore({
     cart: cartReducer,
     [biletApi.reducerPath]: biletApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat([biletApi.middleware]),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat([biletApi.middleware]),
   devTools: process.env.NODE_ENV !== 'production',
 });
 

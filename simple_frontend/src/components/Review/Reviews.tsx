@@ -6,7 +6,9 @@ import CardContainer from '../CardContainer/CardContainer';
 import { useGetReviewQuery } from '@/redux/services/biletApi';
 import { IReview } from '@/types/api';
 
-const Reviews: React.FC<{ movieId: string }> = ({ movieId }): ReactElement | false => {
+const Reviews: React.FC<{ movieId: string }> = ({
+  movieId,
+}): ReactElement | false => {
   const { data: reviews, isLoading } = useGetReviewQuery(movieId);
 
   return (
@@ -19,7 +21,8 @@ const Reviews: React.FC<{ movieId: string }> = ({ movieId }): ReactElement | fal
               <div className={styles.review__header}>
                 <p className={styles.review__author}>{name}</p>
                 <p className={styles.review__rating}>
-                  Оценка: <strong className={styles.review__accent}>{rating}</strong>
+                  Оценка:{' '}
+                  <strong className={styles.review__accent}>{rating}</strong>
                 </p>
               </div>
               <div className={styles.review__text}>{text}</div>

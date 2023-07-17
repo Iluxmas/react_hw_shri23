@@ -1,6 +1,5 @@
 import { Genres } from '@/types/api';
 
-
 export const mapGenre = {
   фэнтези: 'fantasy',
   ужасы: 'horror',
@@ -21,4 +20,4 @@ export const genreMapFunction = (input: Genres): string => {
     default:
       return input;
   }
-}
+};

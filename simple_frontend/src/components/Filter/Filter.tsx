@@ -1,6 +1,10 @@
 'use client';
 import React, { Dispatch, FormEvent, SetStateAction, useState } from 'react';
-import { useGetCinemaMoviesQuery, useGetCinemasQuery, useGetMoviesQuery } from '@/redux/services/biletApi';
+import {
+  useGetCinemaMoviesQuery,
+  useGetCinemasQuery,
+  useGetMoviesQuery,
+} from '@/redux/services/biletApi';
 import { Genres, ICinema, IMovie } from '@/types/api';
 import { genreMapFunction, mapGenre } from '@/utils/genreMapFunction';
 import FormElementContainer from './FormElementContainer/FormElementContainer';
@@ -11,7 +15,7 @@ import Input from './Input/Input';
 
 import styles from './filter.module.css';
 
-function Filter({ moviesData, cinemaData, setFuncion }) {
+const Filter = ({ moviesData, cinemaData, setFuncion }) => {
   const [nameFilter, setNameFilter] = useState<string>('');
   const [genreFilter, setGenreFilter] = useState<Genres>('' as Genres);
   const [cinemaFilter, setCinemaFilter] = useState<ICinema>();
@@ -27,25 +31,35 @@ function Filter({ moviesData, cinemaData, setFuncion }) {
   } = useGetCinemaMoviesQuery(cinemaFilter?.id, { skip });
 
   let filteredMovies = moviesData;
-  const genresList: Genres[] = [...new Set<Genres>(moviesData!.map((movie: IMovie) => movie.genre))];
+  const genresList: Genres[] = [
+    ...new Set<Genres>(moviesData!.map((movie: IMovie) => movie.genre)),
+  ];
 
   if (nameFilter) {
-    filteredMovies = filteredMovies?.filter((movie) => movie.title.indexOf(nameFilter) > -1);
+    filteredMovies = filteredMovies?.filter(
+      movie => movie.title.indexOf(nameFilter) > -1,
+    );
     setFuncion(filteredMovies);
   }
 
   if (genreFilter) {
-    filteredMovies = filteredMovies?.filter((movie) => movie.genre === mapGenre[genreFilter]);
+    filteredMovies = filteredMovies?.filter(
+      movie => movie.genre === mapGenre[genreFilter],
+    );
     setFuncion(filteredMovies);
   }
 
   if (cinemaFilter && !isCinemaLoading) {
     const cinemaIds = cinemaQueryData.map((movie: IMovie) => movie.id);
-    filteredMovies = filteredMovies?.filter((movie) => cinemaIds?.includes(movie.id));
+    filteredMovies = filteredMovies?.filter(
+      movie => cinemaIds?.includes(movie.id),
+    );
     setFuncion(filteredMovies);
   }
 
-  const handleOptionClick = <T extends Genres | (ICinema | undefined)>(setCallback: Dispatch<SetStateAction<T>>) => {
+  const handleOptionClick = <T extends Genres | (ICinema | undefined)>(
+    setCallback: Dispatch<SetStateAction<T>>,
+  ) => {
     return (id: T) => {
       if (id instanceof Object) {
         setSkip(false);
@@ -63,12 +77,12 @@ function Filter({ moviesData, cinemaData, setFuncion }) {
 
   const handleOpenGenre = () => {
     setIsCinemaOpen(false);
-    setIsGenreOpen((prev) => !prev);
+    setIsGenreOpen(prev => !prev);
   };
 
   const handleOpenCinema = () => {
     setIsGenreOpen(false);
-    setIsCinemaOpen((prev) => !prev);
+    setIsCinemaOpen(prev => !prev);
   };
 
   return (
@@ -77,7 +91,11 @@ function Filter({ moviesData, cinemaData, setFuncion }) {
         <h2 className={styles.sidebar__title}>Фильтр поиска</h2>
         <div className={styles.filter}>
           <FormElementContainer>
-            <Input label={'Название'} onInput={handleInputChange} placeHolder={'Введите название'} />
+            <Input
+              label={'Название'}
+              onInput={handleInputChange}
+              placeHolder={'Введите название'}
+            />
           </FormElementContainer>
 
           <FormElementContainer>
@@ -86,14 +104,12 @@ function Filter({ moviesData, cinemaData, setFuncion }) {
               onOpen={handleOpenGenre}
               placeHolder={'Выберите жанр'}
               filter={genreFilter}
-              isOpen={isGenreOpen}
-            >
+              isOpen={isGenreOpen}>
               {isGenreOpen && (
                 <Dropdown
                   options={genresList.map(genreMapFunction)}
                   onClose={() => setIsGenreOpen(false)}
-                  onChoose={handleOptionClick(setGenreFilter)}
-                ></Dropdown>
+                  onChoose={handleOptionClick(setGenreFilter)}></Dropdown>
               )}
             </Select>
           </FormElementContainer>
@@ -104,14 +120,12 @@ function Filter({ moviesData, cinemaData, setFuncion }) {
               onOpen={handleOpenCinema}
               placeHolder={'Выберите кинотеатр'}
               filter={cinemaFilter}
-              isOpen={isCinemaOpen}
-            >
+              isOpen={isCinemaOpen}>
               {isCinemaOpen && (
                 <Dropdown
                   options={cinemaData}
                   onClose={() => setIsCinemaOpen(false)}
-                  onChoose={handleOptionClick(setCinemaFilter)}
-                ></Dropdown>
+                  onChoose={handleOptionClick(setCinemaFilter)}></Dropdown>
               )}
             </Select>
           </FormElementContainer>

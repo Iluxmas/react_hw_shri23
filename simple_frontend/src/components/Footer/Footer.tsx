@@ -8,12 +8,12 @@ const Footer = () => {
       <div className={styles.footer__container}>
         <ul className={styles.footer__linkslist}>
           <li>
-            <Link className={styles.footer__link} href='/FAQ'>
+            <Link className={styles.footer__link} href="/FAQ">
               Вопросы-ответы
             </Link>
           </li>
           <li>
-            <Link className={styles.footer__link} href='/about-us'>
+            <Link className={styles.footer__link} href="/about-us">
               О нас
             </Link>
           </li>
@@ -21,6 +21,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

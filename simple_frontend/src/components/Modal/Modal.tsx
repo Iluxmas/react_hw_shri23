@@ -18,7 +18,9 @@ interface ModalProps {
 
 const Button = ({ style, text, onClickAction }: ButtonProps) => {
   return (
-    <button className={`${styles.modal__button} ${style || ''}`} onClick={onClickAction}>
+    <button
+      className={`${styles.modal__button} ${style || ''}`}
+      onClick={onClickAction}>
       {text}
     </button>
   );
@@ -43,12 +45,26 @@ const Popup = ({ onConfirm, onClose }: ModalProps) => {
     <div className={styles.modal} ref={modalRef}>
       <CardContainer style={styles.modal__wrapper}>
         <h3 className={styles.modal__header}>Удаление билета</h3>
-        <p className={styles.modal__question}>Вы уверены, что хотите удалить билет?</p>
+        <p className={styles.modal__question}>
+          Вы уверены, что хотите удалить билет?
+        </p>
         <div className={styles.modal__buttons}>
-          <Button style={styles.modal__button_yes} text={'Да'} onClickAction={onConfirm} />
-          <Button style={styles.modal__button_no} text={'Нет'} onClickAction={onClose} />
+          <Button
+            style={styles.modal__button_yes}
+            text={'Да'}
+            onClickAction={onConfirm}
+          />
+          <Button
+            style={styles.modal__button_no}
+            text={'Нет'}
+            onClickAction={onClose}
+          />
         </div>
-        <Button style={styles.modal__button_close} text={''} onClickAction={onClose} />
+        <Button
+          style={styles.modal__button_close}
+          text={''}
+          onClickAction={onClose}
+        />
       </CardContainer>
     </div>
   );
@@ -68,7 +84,10 @@ const Modal = ({ onConfirm, onClose }: ModalProps) => {
     return null;
   }
 
-  return createPortal(<Popup onConfirm={onConfirm} onClose={onClose} />, document.body);
+  return createPortal(
+    <Popup onConfirm={onConfirm} onClose={onClose} />,
+    document.body,
+  );
 };
 
 export default Modal;

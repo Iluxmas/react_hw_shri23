@@ -1,7 +1,7 @@
 import { FilterState } from '@/types/store';
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: FilterState = { isLoaded: false, filtered: [] }
+const initialState: FilterState = { isLoaded: false, filtered: [] };
 
 export const filterSlice = createSlice({
   name: 'filter',
@@ -14,9 +14,9 @@ export const filterSlice = createSlice({
     setLoaded: (state, { payload }) => {
       state.isLoaded = payload;
       return;
-    }
-  }
-})
+    },
+  },
+});
 
 export const filterReducer = filterSlice.reducer;
 export const filterActions = filterSlice.actions;

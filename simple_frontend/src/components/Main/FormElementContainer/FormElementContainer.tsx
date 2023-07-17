@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { PropsWithChildren } from 'react';
 import styles from './formElementContainer.module.css';
 
-const FormElementContainer: FC<React.PropsWithChildren<{}>> = ({ children }) => {
+const FormElementContainer = ({ children }: PropsWithChildren) => {
   return <div className={styles.form__fieldset}>{children}</div>;
 };
 

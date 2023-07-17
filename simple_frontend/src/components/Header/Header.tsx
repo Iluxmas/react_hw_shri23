@@ -10,8 +10,13 @@ import { State } from '@/types/store';
 import styles from './header.module.css';
 
 const Header = () => {
-  const cartState: CartState = useSelector((state: State) => selectCartModule(state));
-  const totalTickets: number = Object.values(cartState).reduce((a, c) => a + c, 0);
+  const cartState: CartState = useSelector((state: State) =>
+    selectCartModule(state),
+  );
+  const totalTickets: number = Object.values(cartState).reduce(
+    (a, c) => a + c,
+    0,
+  );
   const path = usePathname();
 
   return (
@@ -20,17 +25,19 @@ const Header = () => {
         {path === '/' ? (
           <span className={styles.header__logo}>Билетопоиск</span>
         ) : (
-          <Link className={styles.header__logo} href='/'>
+          <Link className={styles.header__logo} href="/">
             Билетопоиск
           </Link>
         )}
-        <Link className={styles.basket__container} href='/checkout'>
-          {totalTickets > 0 && <div className={styles.basket__counter}>{totalTickets}</div>}
+        <Link className={styles.basket__container} href="/checkout">
+          {totalTickets > 0 && (
+            <div className={styles.basket__counter}>{totalTickets}</div>
+          )}
           <div className={styles.basket__icon}></div>
         </Link>
       </div>
     </header>
   );
-}
+};
 
 export default Header;

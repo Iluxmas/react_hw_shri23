@@ -13,7 +13,14 @@ interface SelectProps
 
 const PositionContext = createContext(null);
 
-const Select = ({ label, onOpen, placeHolder, filter, isOpen, children }: SelectProps) => {
+const Select = ({
+  label,
+  onOpen,
+  placeHolder,
+  filter,
+  isOpen,
+  children,
+}: SelectProps) => {
   const refSelect = createRef<HTMLDivElement>();
   const [rect, setRect] = useState<DOMRect>();
 
@@ -28,13 +35,22 @@ const Select = ({ label, onOpen, placeHolder, filter, isOpen, children }: Select
   return (
     <>
       <span className={styles.form__label}>{label}</span>
-      <div className={styles.form__select} onClick={handleOnOpen} ref={refSelect}>
-        <span className={styles.form__selectPlaceholder} style={filter ? { color: '#1B1F23' } : {}}>
+      <div
+        className={styles.form__select}
+        onClick={handleOnOpen}
+        ref={refSelect}>
+        <span
+          className={styles.form__selectPlaceholder}
+          style={filter ? { color: '#1B1F23' } : {}}>
           {!filter ? placeHolder : filter?.name || filter}
         </span>
-        <p className={styles.select__expand} style={isOpen ? { transform: 'rotate(180deg)' } : {}}></p>
+        <p
+          className={styles.select__expand}
+          style={isOpen ? { transform: 'rotate(180deg)' } : {}}></p>
       </div>
-      <PositionContext.Provider value={rect}>{children}</PositionContext.Provider>
+      <PositionContext.Provider value={rect}>
+        {children}
+      </PositionContext.Provider>
     </>
   );
 };

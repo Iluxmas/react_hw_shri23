@@ -18,8 +18,13 @@ function Page() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<string>('');
 
-  const cartState: CartState = useSelector((state: State) => selectCartModule(state));
-  const totalTickets: number = Object.values(cartState).reduce((a, c) => a + c, 0);
+  const cartState: CartState = useSelector((state: State) =>
+    selectCartModule(state),
+  );
+  const totalTickets: number = Object.values(cartState).reduce(
+    (a, c) => a + c,
+    0,
+  );
   const dispatch = useDispatch();
 
   const cartLength = Object.keys(cartState).length;
@@ -30,7 +35,9 @@ function Page() {
     if (moviesData) {
       const storeKeys = Object.keys(cartState);
 
-      setCartMovies(moviesData.filter((item: IMovie) => storeKeys.includes(item.id)));
+      setCartMovies(
+        moviesData.filter((item: IMovie) => storeKeys.includes(item.id)),
+      );
     }
   }, [moviesData, cartLength, isMoviesLoading]);
 
@@ -54,12 +61,21 @@ function Page() {
 
   return (
     <>
-      {isModalOpen && <Modal onConfirm={() => handleConfirmDelete(selectedId)} onClose={handleClosePopup} />}
+      {isModalOpen && (
+        <Modal
+          onConfirm={() => handleConfirmDelete(selectedId)}
+          onClose={handleClosePopup}
+        />
+      )}
       <div className={styles.container}>
         <ul className={styles.films__list}>
           {cartMovies.length > 0 ? (
             cartMovies.map((movie: IMovie) => (
-              <FilmItem key={movie.id} movieData={movie} onDelete={() => handleDeleteMovie(movie.id)} />
+              <FilmItem
+                key={movie.id}
+                movieData={movie}
+                onDelete={() => handleDeleteMovie(movie.id)}
+              />
             ))
           ) : (
             <h1> Ваша корзина пуста</h1>

@@ -10,10 +10,15 @@ interface InputProps {
 const Input: FC<InputProps> = ({ label, onInput, placeHolder }) => {
   return (
     <>
-      <label htmlFor='name_filter' className={styles.form__label}>
+      <label htmlFor="name_filter" className={styles.form__label}>
         {label}
       </label>
-      <input className={styles.form__input} type='text' placeholder={placeHolder} onInput={onInput} />
+      <input
+        className={styles.form__input}
+        type="text"
+        placeholder={placeHolder}
+        onInput={onInput}
+      />
     </>
   );
 };

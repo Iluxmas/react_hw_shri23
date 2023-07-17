@@ -14,7 +14,6 @@ export const cartSlice = createSlice({
       } else {
         state[payload] = count + 1;
       }
-
     },
     decrement: (state, { payload }: PayloadAction<string>) => {
       const count = state[payload];
